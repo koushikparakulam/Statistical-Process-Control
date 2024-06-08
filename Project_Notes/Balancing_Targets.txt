@@ -1,0 +1,13 @@
+Balancing Targets For Stateful LSTM
+
+    A balanced dataset of in/out of dist data is neccessary for training generalization
+    A random shift point will yield different breakdowns of windows/sequences leading to imbalance
+
+    Randomly sample shift points from 50 to 400 and have equal in/out points
+
+    This may not allow for predictive capability, in which case the shift points need to be sampled from a higher point
+    --OR--
+    A stateless LSTM must be used where no prior knowledge is known
+    --OR--
+    A stateful imbalanced dataset can be used but with a weighted loss function (more complex and needs precise tuning)
+

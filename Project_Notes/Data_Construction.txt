@@ -1,0 +1,19 @@
+Data Construction Workflow
+
+    All Train/Test/Validation data will be stratified based on distributional overlap between (distA/distB)
+    This ensures that training set has a consistent representation of all distributional shifts for generalization
+
+    Input Training Data will be in the form of:
+        - All batches of all dist shifts and all distB
+        - A batch containing datapoints with some distB shift occurring at (shift_x) and some distB
+            - The total datapoints (t_d_p) will of size (1000 + shift_x)
+
+    Input Data will be given one by one
+
+        - Once the data fills a window size (win_x), statistics for said data is calculated
+        - Once all windows within the sequence_length (seq_len) is filled with stats
+
+            - The corresponding statistics for each window will be given to the LSTM
+            - The model will predict the shift/non-shift across all windows
+            - The earliest prediction can thus not be made until (win_x*seq_len) is reached
+

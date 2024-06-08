@@ -1,0 +1,18 @@
+Distribution Construction Workflow
+    - Standard Normal
+    - t
+    - lognormal
+    - Exponential
+    - Gamma
+    - Weibull
+    - Uniform
+    - Beta
+
+    Use some range for distB for each of the distributional variants
+
+    Obtain a mixture of variants and determine their overlap percentage
+        - Using this overlap percentage sample (x) random samples from each percentage bin (5%, 95%)
+        - Stratify on these samples
+
+    Use Kernel Density Estimation to estimate distA and distB for each of the windows
+        - Using this kernel density estimation calculate the statistics between the distA and distB
